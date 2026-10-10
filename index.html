@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little To-Do 🎀</title>
+
+  <!-- Link our CSS file (must be in the same folder as index.html) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Soft floating flowers in the background (purely decorative) -->
+  <span class="bg-flower bg-flower-1" aria-hidden="true">🌸</span>
+  <span class="bg-flower bg-flower-2" aria-hidden="true">🌷</span>
+  <span class="bg-flower bg-flower-3" aria-hidden="true">🌸</span>
+
+  <main class="app">
+
+    <!-- ===== Header ===== -->
+    <header class="app-header">
+      <div class="bow" aria-hidden="true">🎀</div>
+      <h1>Little To-Do</h1>
+      <p class="subtitle">small tasks, big sparkle ✨</p>
+    </header>
+
+    <!-- ===== Card that holds everything ===== -->
+    <section class="card" aria-label="To-do list">
+
+      <!-- Form for adding a task. Using a <form> means pressing Enter works automatically,
+           and the JavaScript also handles the submit event. -->
+      <form id="task-form" class="task-form" autocomplete="off">
+        <label for="task-input" class="visually-hidden">New task</label>
+        <input
+          type="text"
+          id="task-input"
+          class="task-input"
+          placeholder="What would you like to do today?"
+          maxlength="120"
+        />
+        <button type="submit" class="btn btn-add">Add 🌷</button>
+      </form>
+
+      <!-- Filter buttons -->
+      <nav class="filters" aria-label="Filter tasks">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="active">Active</button>
+        <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+      </nav>
+
+      <!-- The list of tasks. JavaScript fills this in. -->
+      <ul id="task-list" class="task-list"></ul>
+
+      <!-- Empty-state message (shown when there is nothing to display) -->
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">🌸</div>
+        <p id="empty-message" class="empty-message"></p>
+      </div>
+
+      <!-- Footer with the counter -->
+      <footer class="card-footer">
+        <span id="task-counter" class="task-counter" aria-live="polite">0 tasks left</span>
+      </footer>
+    </section>
+
+    <p class="credit">made with love 🎀</p>
+  </main>
+
+  <!-- Link our JavaScript at the END of the body so the HTML exists before the script runs -->
+  <script src="script.js"></script>
+</body>
+</html>
